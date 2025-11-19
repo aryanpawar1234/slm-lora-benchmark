@@ -51,6 +51,9 @@ class Trainer:
         self.eval_steps = training_config.get("eval_steps", 500)
         self.save_steps = training_config.get("save_steps", 1000)
         
+        # NEW: Max samples per epoch
+        self.max_samples_per_epoch = training_config.get("max_samples_per_epoch", None)
+        
         # EMA loss tracking
         self.ema_loss = None
         self.ema_alpha = 0.9
@@ -58,6 +61,8 @@ class Trainer:
     def train(self):
         """Main training loop"""
         print("Starting training...")
+        if self.max_samples_per_epoch:
+            print(f"⚠️  Training will stop at {self.max_samples_per_epoch} samples per epoch")
         start_time = time.time()
         
         for epoch in range(self.num_epochs):
@@ -103,6 +108,7 @@ class Trainer:
         
         total_loss = 0
         total_tokens = 0
+        samples_trained = 0  # NEW: Track samples
         epoch_start_time = time.time()
         
         progress_bar = tqdm(self.train_dataloader, desc=f"Training Epoch {self.current_epoch + 1}")
@@ -165,12 +171,22 @@ class Trainer:
             total_loss += metrics['token_loss'] * metrics['n_tokens']
             total_tokens += metrics['n_tokens']
             
+            # NEW: Track samples and break if limit reached
+            batch_size = batch['input_ids'].size(0)
+            samples_trained += batch_size
+            
             # Update progress bar
             progress_bar.set_postfix({
                 'loss': f"{metrics['token_loss']:.4f}",
                 'ppl': f"{metrics['ppl']:.2f}",
-                'lr': f"{self.get_lr():.2e}"
+                'lr': f"{self.get_lr():.2e}",
+                'samples': samples_trained  # NEW: Show sample count
             })
+            
+            # NEW: Break if max samples reached
+            if self.max_samples_per_epoch and samples_trained >= self.max_samples_per_epoch:
+                print(f"\n✓ Reached {samples_trained} samples, stopping epoch early")
+                break
         
         avg_loss = total_loss / total_tokens if total_tokens > 0 else 0
         epoch_time = time.time() - epoch_start_time
@@ -178,7 +194,8 @@ class Trainer:
         return {
             'train_loss': avg_loss,
             'train_ppl': math.exp(avg_loss) if avg_loss < 100 else float('inf'),
-            'epoch_time': epoch_time
+            'epoch_time': epoch_time,
+            'samples_trained': samples_trained  # NEW: Return sample count
         }
     
     def training_step(self, batch):
@@ -278,6 +295,10 @@ class Trainer:
             'epoch/val_ppl': val_metrics['val_ppl'],
             'epoch/time': train_metrics['epoch_time']
         }
+        
+        # NEW: Log samples trained if available
+        if 'samples_trained' in train_metrics:
+            summary['epoch/samples_trained'] = train_metrics['samples_trained']
         
         self.wandb_logger.log(summary, step=self.global_step)
     
