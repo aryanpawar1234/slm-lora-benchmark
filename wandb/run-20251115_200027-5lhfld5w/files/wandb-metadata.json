@@ -1,0 +1,21 @@
+{
+  "os": "macOS-15.7.1-x86_64-i386-64bit",
+  "python": "CPython 3.9.6",
+  "startedAt": "2025-11-15T14:30:27.067960Z",
+  "args": [
+    "--config",
+    "configs/experiments/baseline.yaml"
+  ],
+  "program": "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py",
+  "codePath": "scripts/train.py",
+  "codePathLocal": "scripts/train.py",
+  "git": {
+    "remote": "https://github.com/aryanpawar1234/slm-lora-benchmark.git",
+    "commit": "650934bf0a41a8c6f0a0b758c7daa6cac205368f"
+  },
+  "email": "aryanpawar1515@gmail.com",
+  "root": "/Users/apple/Desktop/slm-lora-benchmark",
+  "host": "apples-MacBook-Pro.local",
+  "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "writerId": "b5jv0ky51e30mo4c8ngfankxvicsrtqs"
+}

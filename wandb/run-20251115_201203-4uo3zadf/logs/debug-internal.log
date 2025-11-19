@@ -1,0 +1,12 @@
+{"time":"2025-11-15T20:12:04.167223+05:30","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-15T20:12:04.183732+05:30","level":"ERROR","msg":"monitor: failed to initialize GPU resource: monitor: could not start GPU binary: fork/exec /Users/apple/Library/Python/3.9/lib/python/site-packages/wandb/bin/gpu_stats: bad CPU type in executable"}
+{"time":"2025-11-15T20:12:04.526031+05:30","level":"INFO","msg":"stream: created new stream","id":"4uo3zadf"}
+{"time":"2025-11-15T20:12:04.526595+05:30","level":"INFO","msg":"handler: started","stream_id":"4uo3zadf"}
+{"time":"2025-11-15T20:12:04.526683+05:30","level":"INFO","msg":"stream: started","id":"4uo3zadf"}
+{"time":"2025-11-15T20:12:04.527077+05:30","level":"INFO","msg":"writer: started","stream_id":"4uo3zadf"}
+{"time":"2025-11-15T20:12:04.527102+05:30","level":"INFO","msg":"sender: started","stream_id":"4uo3zadf"}
+{"time":"2025-11-15T20:14:05.839466+05:30","level":"INFO","msg":"stream: closing","id":"4uo3zadf"}
+{"time":"2025-11-15T20:14:07.915846+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-15T20:14:08.312313+05:30","level":"INFO","msg":"handler: closed","stream_id":"4uo3zadf"}
+{"time":"2025-11-15T20:14:08.312706+05:30","level":"INFO","msg":"sender: closed","stream_id":"4uo3zadf"}
+{"time":"2025-11-15T20:14:08.312734+05:30","level":"INFO","msg":"stream: closed","id":"4uo3zadf"}

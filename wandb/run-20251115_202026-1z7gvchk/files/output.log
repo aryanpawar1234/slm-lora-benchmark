@@ -1,0 +1,9 @@
+Map: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36718/36718 [00:10<00:00, 3640.62 examples/s]
+/Users/apple/Library/Python/3.9/lib/python/site-packages/bitsandbytes/cextension.py:34: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+'NoneType' object has no attribute 'cadam32bit_grad_fp32'
+/Users/apple/Library/Python/3.9/lib/python/site-packages/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+trainable params: 294,912 || all params: 124,734,720 || trainable%: 0.2364
+Epoch 1/1:   0%|                                                                                                                                                      | 0/9180 [00:00<?, ?it/s]`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+Epoch 1/1:   0%|                                                                                                                              | 3/9180 [00:33<21:19:06,  8.36s/it, loss=4.9250]

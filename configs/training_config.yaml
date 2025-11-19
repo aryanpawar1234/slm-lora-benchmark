@@ -1,0 +1,89 @@
+# Training Configuration
+# Optimized for T4 GPU (16GB VRAM)
+
+training:
+  # Basic settings
+  num_epochs: 3
+  batch_size: 8  # Per device batch size
+  gradient_accumulation_steps: 4  # Effective batch = 8 * 4 = 32
+  max_steps: -1  # -1 means train for full epochs
+  
+  # Optimization
+  learning_rate: 1e-4
+  weight_decay: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1e-8
+  max_grad_norm: 1.0  # Gradient clipping
+  
+  # Learning rate schedule
+  lr_scheduler_type: "cosine"  # Options: linear, cosine, constant
+  warmup_steps: 100
+  warmup_ratio: 0.05  # Alternative to warmup_steps
+  
+  # Mixed precision training
+  fp16: false  # Set true for T4 GPU
+  bf16: false  # Set true for A100 GPU
+  fp16_opt_level: "O1"
+  
+  # Logging
+  logging_steps: 10  # Log every N steps
+  logging_first_step: true
+  
+  # Evaluation
+  eval_strategy: "steps"  # Options: "no", "steps", "epoch"
+  eval_steps: 500  # Evaluate every N steps
+  per_device_eval_batch_size: 8
+  
+  # Checkpointing
+  save_strategy: "steps"
+  save_steps: 1000
+  save_total_limit: 3  # Keep only last 3 checkpoints
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  
+  # Data loading
+  dataloader_num_workers: 2
+  dataloader_pin_memory: true
+  dataloader_prefetch_factor: 2
+  
+  # Reproducibility
+  seed: 42
+  data_seed: 42
+  
+  # Optimization techniques
+  gradient_checkpointing: true
+  optim: "adamw_torch"  # Options: adamw_torch, adamw_hf, adafactor
+  
+  # Advanced settings
+  remove_unused_columns: true
+  label_smoothing_factor: 0.0
+
+# Weights & Biases Configuration
+wandb:
+  project: "slm-lora-benchmark"
+  entity: null  # Set your W&B username
+  name: null  # Auto-generated based on config
+  tags: ["pythia-410m", "lora", "baseline"]
+  notes: "Baseline training run with Pythia-410M"
+  group: "pythia-experiments"
+  job_type: "train"
+  
+  # Logging frequency
+  log_interval: 10  # Log every N steps
+  
+  # What to log
+  log_model: true  # Log model checkpoints
+  log_gradients: false  # Can be expensive
+  log_parameters: false
+  
+  # Run mode
+  mode: "online"  # Options: online, offline, disabled
+
+# Output directories
+output:
+  output_dir: "./outputs/runs"
+  logging_dir: "./outputs/logs"
+  checkpoint_dir: "./outputs/checkpoints"
+  predictions_dir: "./outputs/predictions"

@@ -1,0 +1,37 @@
+# LoRA Configuration
+# Parameter-Efficient Fine-Tuning settings
+
+lora:
+  # Core LoRA parameters
+  r: 16  # LoRA rank (4, 8, 16, 32, 64)
+  lora_alpha: 32  # Scaling factor (typically 2*r)
+  lora_dropout: 0.1  # Dropout probability
+  
+  # Target modules for Pythia
+  target_modules:
+    - "query_key_value"  # Pythia uses combined QKV projection
+  
+  # Additional LoRA settings
+  bias: "none"  # Options: "none", "all", "lora_only"
+  task_type: "CAUSAL_LM"  # Causal language modeling
+  inference_mode: false  # Set to true for inference only
+  
+  # Modules to save
+  modules_to_save: null  # Set to ["embed_tokens", "lm_head"] if needed
+  
+  # Fan in fan out (for some architectures)
+  fan_in_fan_out: false
+  
+  # LoRA initialization
+  init_lora_weights: true  # Initialize LoRA weights
+
+# Hyperparameter sweep ranges (for reference)
+sweep_ranges:
+  r: [4, 8, 16, 32, 64]
+  lora_alpha: [8, 16, 32, 64, 128]
+  lora_dropout: [0.0, 0.05, 0.1, 0.2]
+  
+# Memory optimization
+memory:
+  use_gradient_checkpointing: true
+  use_8bit_optimizer: false  # Set true if OOM

@@ -1,0 +1,70 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            s9add87hyacndj0ssm844diy1els2ikr:
+                args:
+                    - --config
+                    - configs/experiments/baseline.yaml
+                codePath: scripts/train.py
+                codePathLocal: scripts/train.py
+                cpu_count: 6
+                cpu_count_logical: 12
+                disk:
+                    /:
+                        total: "499963174912"
+                        used: "147733377024"
+                email: aryanpawar1515@gmail.com
+                executable: /Library/Developer/CommandLineTools/usr/bin/python3
+                git:
+                    commit: 650934bf0a41a8c6f0a0b758c7daa6cac205368f
+                    remote: https://github.com/aryanpawar1234/slm-lora-benchmark.git
+                host: apples-MacBook-Pro.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.7.1-x86_64-i386-64bit
+                program: /Users/apple/Desktop/slm-lora-benchmark/scripts/train.py
+                python: CPython 3.9.6
+                root: /Users/apple/Desktop/slm-lora-benchmark
+                startedAt: "2025-11-15T14:37:29.135230Z"
+                writerId: s9add87hyacndj0ssm844diy1els2ikr
+        m: []
+        python_version: 3.9.6
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+            "3":
+                - 16
+            "4": 3.9.6
+            "5": 0.23.0
+            "6": 4.57.1
+            "12": 0.23.0
+            "13": darwin-x86_64
+experiment:
+    value:
+        name: baseline_gpt2_wikitext2
+        use_dataset: wikitext2
+include:
+    value:
+        - model_config.yaml
+        - lora_config.yaml
+        - training_config.yaml
+        - datasets.yaml

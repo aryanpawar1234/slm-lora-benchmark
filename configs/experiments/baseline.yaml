@@ -1,0 +1,9 @@
+experiment:
+  name: "baseline_gpt2_wikitext2"
+  use_dataset: "wikitext2"
+
+include:
+  - "model_config.yaml"
+  - "lora_config.yaml"
+  - "training_config.yaml"
+  - "datasets.yaml"

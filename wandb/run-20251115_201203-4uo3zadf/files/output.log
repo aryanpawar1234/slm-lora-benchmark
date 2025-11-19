@@ -1,0 +1,43 @@
+tokenizer_config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 26.0/26.0 [00:00<00:00, 2.75kB/s]
+config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 665/665 [00:00<00:00, 373kB/s]
+vocab.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.04M/1.04M [00:00<00:00, 1.80MB/s]
+merges.txt: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 456k/456k [00:00<00:00, 1.17MB/s]
+tokenizer.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.36M/1.36M [00:00<00:00, 1.64MB/s]
+README.md: 10.5kB [00:00, 9.51MB/s]
+wikitext-2-raw-v1/test-00000-of-00001.pa(…): 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 733k/733k [00:02<00:00, 318kB/s]
+wikitext-2-raw-v1/train-00000-of-00001.p(…): 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 6.36M/6.36M [00:01<00:00, 3.36MB/s]
+wikitext-2-raw-v1/validation-00000-of-00(…): 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 657k/657k [00:00<00:00, 950kB/s]
+Generating test split: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4358/4358 [00:00<00:00, 76003.86 examples/s]
+Generating train split: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36718/36718 [00:00<00:00, 980795.39 examples/s]
+Generating validation split: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3760/3760 [00:00<00:00, 655496.20 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4358/4358 [00:01<00:00, 3501.26 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36718/36718 [00:10<00:00, 3565.12 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3760/3760 [00:01<00:00, 3696.37 examples/s]
+model.safetensors: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 548M/548M [01:21<00:00, 6.72MB/s]
+generation_config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 124/124 [00:00<00:00, 12.1kB/s]
+/Users/apple/Library/Python/3.9/lib/python/site-packages/bitsandbytes/cextension.py:34: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+  warn("The installed version of bitsandbytes was compiled without GPU support. "
+'NoneType' object has no attribute 'cadam32bit_grad_fp32'
+/Users/apple/Library/Python/3.9/lib/python/site-packages/peft/tuners/lora/layer.py:2174: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+trainable params: 294,912 || all params: 124,734,720 || trainable%: 0.2364
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 31, in <module>
+    main()
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 26, in main
+    train_model(model, train_loader, val_loader, cfg, tokenizer)
+  File "/Users/apple/Desktop/slm-lora-benchmark/src/training/trainer.py", line 35, in train_model
+    optimizer = AdamW(model.parameters(), lr=cfg["learning_rate"], weight_decay=cfg["weight_decay"])
+  File "/Users/apple/Library/Python/3.9/lib/python/site-packages/torch/optim/adamw.py", line 28, in __init__
+    if not 0.0 <= lr:
+TypeError: '<=' not supported between instances of 'float' and 'str'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 31, in <module>
+    main()
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 26, in main
+    train_model(model, train_loader, val_loader, cfg, tokenizer)
+  File "/Users/apple/Desktop/slm-lora-benchmark/src/training/trainer.py", line 35, in train_model
+    optimizer = AdamW(model.parameters(), lr=cfg["learning_rate"], weight_decay=cfg["weight_decay"])
+  File "/Users/apple/Library/Python/3.9/lib/python/site-packages/torch/optim/adamw.py", line 28, in __init__
+    if not 0.0 <= lr:
+TypeError: '<=' not supported between instances of 'float' and 'str'

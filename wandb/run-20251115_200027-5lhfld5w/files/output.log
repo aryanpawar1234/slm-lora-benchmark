@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 31, in <module>
+    main()
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 23, in main
+    train_loader, val_loader, tokenizer = get_dataloaders(cfg)
+  File "/Users/apple/Desktop/slm-lora-benchmark/src/data/dataset_loader.py", line 10, in get_dataloaders
+    model_name = config["model"]["name"]
+KeyError: 'model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 31, in <module>
+    main()
+  File "/Users/apple/Desktop/slm-lora-benchmark/scripts/train.py", line 23, in main
+    train_loader, val_loader, tokenizer = get_dataloaders(cfg)
+  File "/Users/apple/Desktop/slm-lora-benchmark/src/data/dataset_loader.py", line 10, in get_dataloaders
+    model_name = config["model"]["name"]
+KeyError: 'model'

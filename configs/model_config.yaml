@@ -1,0 +1,42 @@
+# Model Configuration
+# Using Pythia-410M - optimal for T4 GPU
+
+model:
+  # Model selection
+  name: "EleutherAI/pythia-410m"
+  revision: "main"
+  
+  # Model parameters
+  max_length: 512
+  vocab_size: 50304
+  hidden_size: 1024
+  num_hidden_layers: 24
+  num_attention_heads: 16
+  
+  # Loading options
+  trust_remote_code: false
+  use_cache: false  # Disable KV cache during training
+  torch_dtype: "float32"  # Will use mixed precision during training
+  low_cpu_mem_usage: true
+  
+  # Device settings
+  device_map: "auto"
+  load_in_8bit: false  # Set to true if OOM on T4
+  load_in_4bit: false
+  
+  # Gradient checkpointing (saves memory)
+  gradient_checkpointing: true
+  
+  # Model-specific settings
+  pad_token_id: 0
+  bos_token_id: 0
+  eos_token_id: 0
+  
+# Tokenizer settings
+tokenizer:
+  name: "EleutherAI/pythia-410m"
+  use_fast: true
+  add_prefix_space: false
+  padding_side: "right"
+  truncation_side: "right"
+  model_max_length: 512

@@ -1,0 +1,23 @@
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_setup.py:_flush():80] Current SDK version is 0.23.0
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_setup.py:_flush():80] Configure stats pid to 92349
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_setup.py:_flush():80] Loading settings from /Users/apple/.config/wandb/settings
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_setup.py:_flush():80] Loading settings from /Users/apple/Desktop/slm-lora-benchmark/wandb/settings
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_init.py:setup_run_log_directory():713] Logging user logs to /Users/apple/Desktop/slm-lora-benchmark/wandb/run-20251115_201203-4uo3zadf/logs/debug.log
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_init.py:setup_run_log_directory():714] Logging internal logs to /Users/apple/Desktop/slm-lora-benchmark/wandb/run-20251115_201203-4uo3zadf/logs/debug-internal.log
+2025-11-15 20:12:03,384 INFO    MainThread:92349 [wandb_init.py:init():840] calling init triggers
+2025-11-15 20:12:03,385 INFO    MainThread:92349 [wandb_init.py:init():845] wandb.init called with sweep_config: {}
+config: {'model': {'name': 'gpt2', 'max_length': 512, 'use_cache': False}, 'lora': {'r': 8, 'lora_alpha': 16, 'lora_dropout': 0.05, 'target_modules': ['c_attn'], 'bias': 'none', 'task_type': 'CAUSAL_LM'}, 'training': {'num_epochs': 1, 'batch_size': 4, 'gradient_accumulation_steps': 4, 'learning_rate': '5e-5', 'warmup_steps': 100, 'weight_decay': 0.01, 'max_grad_norm': 1.0, 'seed': 42, 'log_every_steps': 10, 'save_every_steps': 200, 'output_dir': 'outputs/checkpoints'}, 'wandb': {'project': 'slm-lora-benchmark', 'entity': None, 'run_name': 'gpt2-wikitext2-lora-baseline'}, 'datasets': {'wikitext2': {'hf_name': 'wikitext', 'subset': 'wikitext-2-raw-v1', 'split': 'train', 'val_split': 'validation', 'text_field': 'text'}}, 'experiment': {'name': 'baseline_gpt2_wikitext2', 'use_dataset': 'wikitext2'}, 'include': ['model_config.yaml', 'lora_config.yaml', 'training_config.yaml', 'datasets.yaml'], '_wandb': {}}
+2025-11-15 20:12:03,385 INFO    MainThread:92349 [wandb_init.py:init():888] starting backend
+2025-11-15 20:12:04,088 INFO    MainThread:92349 [wandb_init.py:init():891] sending inform_init request
+2025-11-15 20:12:04,160 INFO    MainThread:92349 [wandb_init.py:init():899] backend started and connected
+2025-11-15 20:12:04,167 INFO    MainThread:92349 [wandb_init.py:init():969] updated telemetry
+2025-11-15 20:12:04,219 INFO    MainThread:92349 [wandb_init.py:init():993] communicating run to backend with 90.0 second timeout
+2025-11-15 20:12:05,227 INFO    MainThread:92349 [wandb_init.py:init():1040] starting run threads in backend
+2025-11-15 20:12:05,660 INFO    MainThread:92349 [wandb_run.py:_console_start():2504] atexit reg
+2025-11-15 20:12:05,660 INFO    MainThread:92349 [wandb_run.py:_redirect():2352] redirect: wrap_raw
+2025-11-15 20:12:05,660 INFO    MainThread:92349 [wandb_run.py:_redirect():2421] Wrapping output streams.
+2025-11-15 20:12:05,660 INFO    MainThread:92349 [wandb_run.py:_redirect():2444] Redirects installed.
+2025-11-15 20:12:05,665 INFO    MainThread:92349 [wandb_init.py:init():1080] run started, returning control to user process
+2025-11-15 20:14:05,838 INFO    wandb-AsyncioManager-main:92349 [service_client.py:_forward_responses():80] Reached EOF.
+2025-11-15 20:14:05,838 INFO    wandb-AsyncioManager-main:92349 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.
