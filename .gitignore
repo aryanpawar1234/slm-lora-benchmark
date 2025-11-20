@@ -1,1 +1,30 @@
-project
+# Large model files
+*.pt
+*.bin
+*.ckpt
+*.safetensors
+
+# Training outputs
+outputs/
+checkpoints/
+runs/
+wandb/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Data
+*.zip
+*.tar
+*.npy
+*.npz
+*.h5
+*.csv
+data/
+datasets/
+
+# Logs
+*.log
+*.out
+logs/
