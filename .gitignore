@@ -1,30 +1,19 @@
-# Large model files
-*.pt
-*.bin
-*.ckpt
-*.safetensors
-
 # Training outputs
 outputs/
-checkpoints/
-runs/
 wandb/
+*.pt
+*.pth
+*.bin
+*.safetensors
 
-# Python caches
+# Python
 __pycache__/
-*.pyc
-
-# Data
-*.zip
-*.tar
-*.npy
-*.npz
-*.h5
-*.csv
-data/
-datasets/
+*.py[cod]
+venv/
 
 # Logs
-*.log
-*.out
 logs/
+*.log
+
+# OS
+.DS_Store

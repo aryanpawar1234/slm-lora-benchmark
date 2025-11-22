@@ -1,6 +1,4 @@
-# Dataset Configuration for SLM LoRA Benchmark
-# All datasets are text-only, non-reasoning, suitable for language modeling
-# max_samples optimized for T4 GPU (16GB VRAM)
+# Dataset Configuration - Reduced for faster training
 
 datasets:
   # Core Language Modeling Datasets
@@ -9,141 +7,76 @@ datasets:
     subset: "wikitext-103-raw-v1"
     split: "train"
     text_column: "text"
-    max_samples: 50000  # ~25M tokens
+    max_samples: 2000
     description: "Large-scale Wikipedia articles"
-    
+
   wikitext_2:
     name: "Salesforce/wikitext"
     subset: "wikitext-2-raw-v1"
     split: "train"
     text_column: "text"
-    max_samples: 10000  # ~5M tokens
+    max_samples: 1000
     description: "Smaller Wikipedia corpus"
-    
-  openwebtext:
-    name: "Skylion007/openwebtext"
-    subset: null
-    split: "train"
-    text_column: "text"
-    max_samples: 30000  # ~15M tokens
-    description: "Web text corpus"
-    
-  bookcorpus:
-    name: "bookcorpusopen/bookcorpusopen"
-    subset: null
-    split: "train"
-    text_column: "text"
-    max_samples: 20000  # ~10M tokens
-    description: "Book excerpts and novels"
-    
+
   tinystories:
     name: "roneneldan/TinyStories"
     subset: null
     split: "train"
     text_column: "text"
-    max_samples: 40000  # ~8M tokens (shorter texts)
+    max_samples: 2000
     description: "Simple narrative stories"
-    
+
   # News & Articles
   ag_news:
     name: "ag_news"
     subset: null
     split: "train"
     text_column: "text"
-    max_samples: 60000  # ~3M tokens (short articles)
+    max_samples: 2000
     description: "News articles classification"
-    
+
   cnn_dailymail:
     name: "cnn_dailymail"
     subset: "3.0.0"
     split: "train"
     text_column: "article"
-    max_samples: 25000  # ~12M tokens
+    max_samples: 1000
     description: "CNN and Daily Mail news articles"
-    
-  xsum:
-    name: "xsum"
-    subset: null
-    split: "train"
-    text_column: "document"
-    max_samples: 50000  # ~10M tokens
-    description: "BBC news summaries"
-    
+
   # Reviews
   yelp_reviews:
     name: "yelp_review_full"
     subset: null
     split: "train"
     text_column: "text"
-    max_samples: 100000  # ~5M tokens (short reviews)
+    max_samples: 1000
     description: "Restaurant reviews"
-    
-  amazon_reviews:
-    name: "amazon_reviews_multi"
-    subset: "en"
-    split: "train"
-    text_column: "review_body"
-    max_samples: 50000  # ~8M tokens
-    description: "Product reviews"
-    
-  # Dialogue & QA
-  daily_dialog:
-    name: "daily_dialog"
-    subset: null
-    split: "train"
-    text_column: "dialog"
-    max_samples: 13118  # Full dataset (small)
-    description: "Conversational dialogues"
-    
-  eli5:
-    name: "eli5"
-    subset: null
-    split: "train_asks"
-    text_column: "title"
-    max_samples: 30000  # ~5M tokens
-    description: "Explain-like-I'm-5 questions"
-    
+
+  # QA
   squad:
     name: "squad"
     subset: null
     split: "train"
     text_column: "context"
-    max_samples: 87599  # Full dataset
+    max_samples: 1000
     description: "Reading comprehension contexts"
-    
-  ai2_arc:
-    name: "allenai/ai2_arc"
-    subset: "ARC-Easy"
-    split: "train"
-    text_column: "question"
-    max_samples: 2251  # Full dataset (small)
-    description: "Science questions"
-    
-  # Additional Web Text
-  pile_subset:
-    name: "monology/pile-uncopyrighted"
-    subset: null
-    split: "train"
-    text_column: "text"
-    max_samples: 10000  # ~15M tokens
-    description: "Diverse web text from The Pile"
 
 # Preprocessing settings
 preprocessing:
-  max_length: 512  # Maximum sequence length
-  stride: 256  # Overlap for sliding window
-  min_length: 32  # Minimum sequence length
+  max_length: 512
+  stride: 256
+  min_length: 32
   remove_empty: true
   lowercase: false
   remove_special_chars: false
-  
+
 # Tokenization settings
 tokenization:
   padding: "max_length"
   truncation: true
   return_attention_mask: true
   return_token_type_ids: false
-  
+
 # Data loading settings
 dataloader:
   batch_size: 8
@@ -155,5 +88,5 @@ dataloader:
 
 # Validation split settings
 validation:
-  split_ratio: 0.1  # 10% for validation
+  split_ratio: 0.1
   seed: 42
