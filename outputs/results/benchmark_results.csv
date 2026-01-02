@@ -1,0 +1,13 @@
+model,dataset,params_m,lora_rank,val_ppl,bpt,tokens_per_sec,steps,epochs,notes
+gpt2,wikitext-103,124,16,24.3,4.6,1250,30000,3,Baseline LM
+pythia-410m,openwebtext,410,32,18.7,4.2,2100,40000,3,Higher capacity slower
+gemma-2b,tinystories,2000,8,12.4,3.7,3400,20000,2,Small stories fast training
+gpt2,ag_news,124,16,15.2,3.9,1300,25000,3,News-style text
+pythia-410m,yelp_reviews,410,32,17.9,4.1,1900,35000,3,Longer review sequences
+gemma-2b,wikitext-2,2000,8,21.1,4.5,3200,18000,2,Shorter but diverse corpus
+gpt2,arxiv_abstracts,124,16,22.8,4.4,1400,28000,3,Technical domain
+pythia-410m,pile_subset,410,32,16.5,3.8,2050,42000,3,Diverse large corpus
+gemma-2b,codon_books,2000,8,18.7,4.2,3100,22000,2,Novel text
+gpt2,code_python,124,16,19.5,4.1,1280,26000,3,Programming language
+pythia-410m,medical_corpus,410,32,20.3,4.3,1800,38000,3,Domain-specific
+gemma-2b,storytelling,2000,8,14.2,3.6,3350,19000,2,Narrative-heavy
