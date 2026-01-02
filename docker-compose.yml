@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  slm-lora-benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: slm-lora-benchmark
+    image: slm-lora-benchmark:latest
+    
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    # Volume mounts
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+      - ./notebooks:/app/notebooks
+    
+    # Environment variables
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - WANDB_API_KEY=${WANDB_API_KEY}
+    
+    # Port exposures
+    ports:
+      - "8888:8888"  # Jupyter
+      - "6006:6006"  # TensorBoard
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Working directory
+    working_dir: /app
+    
+    # Resource limits
+    mem_limit: 64g
+    shm_size: '2gb'
+    
+    command: /bin/bash
+
+volumes:
+  data:
+  outputs:
+  logs:
